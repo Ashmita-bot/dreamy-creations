@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Work — _dreamy._creations_</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6efe1;
+  --paper-deep:#efe5cf;
+  --ink:#241b14;
+  --ink-soft:#5c4f3f;
+  --clay:#b65c36;
+  --mustard:#c98a2c;
+  --mustard-soft:#e3b45f;
+  --line:rgba(36,27,20,0.16);
+  --tape:#e9dcb8;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+
+body{
+  background:
+    radial-gradient(circle at 15% 8%, rgba(201,138,44,0.07), transparent 40%),
+    radial-gradient(circle at 85% 92%, rgba(182,92,54,0.06), transparent 45%),
+    var(--paper);
+  color:var(--ink);
+  font-family:'Karla', sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit;}
+img,svg{display:block; max-width:100%;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+@media(max-width:640px){ .wrap{padding:0 20px;} body{font-size:16px;} }
+
+h1,h2,h3{font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em;}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  border-bottom:1px solid var(--line);
+}
+.topbar-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 0;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.crumb{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--ink-soft);
+  text-decoration:none;
+}
+.crumb:hover{color:var(--clay);}
+.crumb svg{width:14px; height:14px;}
+
+.brand{
+  font-family:'Fraunces', serif;
+  font-size:18px;
+  font-weight:600;
+}
+.brand .dot{color:var(--mustard);}
+
+.insta-link{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  text-decoration:none;
+  color:var(--ink);
+  border-bottom:1px solid var(--ink);
+  padding-bottom:2px;
+}
+.insta-link svg{width:15px; height:15px;}
+.insta-link:hover{color:var(--clay); border-color:var(--clay);}
+
+/* ---------- INTRO ---------- */
+.gallery-intro{
+  padding:64px 0 40px;
+}
+.intro-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:40px;
+  align-items:end;
+}
+@media(max-width:760px){ .intro-grid{grid-template-columns:1fr; gap:20px;} }
+
+.gallery-intro .kicker{
+  font-family:'Fraunces', serif;
+  font-style:italic;
+  font-size:15px;
+  color:var(--clay);
+  margin-bottom:14px;
+}
+.gallery-intro h1{
+  font-size:clamp(34px, 5vw, 56px);
+  line-height:1.06;
+  max-width:14ch;
+}
+.gallery-intro .desc{
+  color:var(--ink-soft);
+  font-size:16.5px;
+  max-width:42ch;
+}
+
+/* ---------- FILTER TABS ---------- */
+.tabs{
+  display:flex;
+  gap:0;
+  margin-top:48px;
+  border-bottom:1px solid var(--line);
+}
+.tab{
+  font-family:'Karla', sans-serif;
+  font-size:14.5px;
+  font-weight:600;
+  color:var(--ink-soft);
+  background:none;
+  border:none;
+  padding:12px 22px 14px;
+  cursor:pointer;
+  position:relative;
+  top:1px;
+}
+.tab:first-child{padding-left:0;}
+.tab.active{color:var(--ink);}
+.tab.active::after{
+  content:"";
+  position:absolute;
+  left:22px; right:22px; bottom:-1px;
+  height:2px;
+  background:var(--mustard);
+}
+.tab:first-child.active::after{left:0;}
+.tab:hover{color:var(--ink);}
+
+/* ---------- MASONRY GALLERY ---------- */
+.masonry{
+  padding:44px 0 20px;
+  columns:4 260px;
+  column-gap:22px;
+}
+@media(max-width:760px){ .masonry{columns:2 180px;} }
+@media(max-width:460px){ .masonry{columns:1;} }
+
+.piece{
+  break-inside:avoid;
+  margin-bottom:22px;
+  display:inline-block;
+  width:100%;
+}
+
+.piece .frame{
+  position:relative;
+  background:var(--paper-deep);
+  border:1px solid var(--line);
+  padding:10px 10px 0;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.piece:nth-child(3n+1) .frame{transform:rotate(-1.1deg);}
+.piece:nth-child(3n+2) .frame{transform:rotate(0.9deg);}
+.piece:nth-child(3n) .frame{transform:rotate(-0.4deg);}
+.piece .frame:hover{
+  transform:rotate(0deg) translateY(-3px);
+  box-shadow:0 16px 30px -18px rgba(36,27,20,0.4);
+  z-index:2;
+}
+
+.piece .frame img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.piece .tape{
+  position:absolute;
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%) rotate(-2deg);
+  width:70px;
+  height:22px;
+  background:var(--tape);
+  opacity:0.85;
+  box-shadow:0 2px 4px rgba(36,27,20,0.15);
+}
+.piece:nth-child(4n) .tape{transform:translateX(-50%) rotate(2deg); background:var(--mustard-soft); opacity:0.7;}
+
+.piece .cap{
+  padding:14px 4px 18px;
+}
+.piece .cap .kind{
+  font-size:11.5px;
+  text-transform:none;
+  color:var(--clay);
+  font-weight:600;
+  margin-bottom:3px;
+}
+.piece .cap h3{
+  font-family:'Fraunces', serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:16.5px;
+  color:var(--ink);
+}
+
+/* ---------- NOTE ---------- */
+.archive-note{
+  margin:36px 0 10px;
+  padding:18px 20px;
+  border:1px dashed var(--line);
+  font-size:14px;
+  color:var(--ink-soft);
+  max-width:70ch;
+}
+
+/* ---------- CTA STRIP ---------- */
+.cta-strip{
+  margin-top:70px;
+  border-top:1px solid var(--line);
+  padding:44px 0 56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.cta-strip p{
+  font-family:'Fraunces', serif;
+  font-size:20px;
+  max-width:30ch;
+}
+.cta-strip .btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--ink);
+  color:var(--paper);
+  text-decoration:none;
+  font-size:14.5px;
+  font-weight:600;
+  padding:13px 24px;
+  border-radius:999px;
+  white-space:nowrap;
+  transition:background .18s ease;
+}
+.cta-strip .btn:hover{background:var(--clay);}
+.cta-strip .btn svg{width:16px; height:16px;}
+
+footer.simple{
+  border-top:1px solid var(--line);
+  padding:22px 0 40px;
+  font-size:13px;
+  color:var(--ink-soft);
+  text-align:center;
+}
+
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--mustard);
+  outline-offset:3px;
+}
+
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-row">
+    <div class="brand">dreamy<span class="dot">.</span>creations</div>
+    <a class="insta-link" href="https://instagram.com/_dreamy._creations_" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+      @_dreamy._creations_
+    </a>
+  </div>
+</header>
+
+<section class="gallery-intro">
+  <div class="wrap intro-grid">
+    <div>
+      <div class="kicker">A small, growing archive</div>
+      <h1>Things made by hand, one at a time</h1>
+    </div>
+    <p class="desc">Lippan clay-and-mirror art, thalposh, and upcycled bottle art, made to order — most pieces won't be repeated exactly. DM about anything you see, or bring your own idea.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="tabs" role="tablist" aria-label="Filter work by craft">
+      <button class="tab active" data-filter="all">All work</button>
+      <button class="tab" data-filter="lippan">Lippan art</button>
+      <button class="tab" data-filter="thalposh">Thalposh</button>
+      <button class="tab" data-filter="bottle">Bottle art</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="masonry" id="gallery">
+      <article class="piece" data-cat="lippan">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="lippan art1.jpeg" alt="Lippan clay and mirror art of Jagannath's face with a lotus-petal border"> 
+        </div>
+        <div class="cap"><div class="kind">Lippan art</div><h3>Jagannath face plate</h3></div>
+      </article>
+      <article class="piece" data-cat="thalposh">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="thalposh4.jpeg" alt="Maroon velvet thalposh with a gota-work swastik motif">
+        </div>
+        <div class="cap"><div class="kind">Thalposh</div><h3>Swastik thalposh</h3></div>
+      </article>
+      <article class="piece" data-cat="bottle">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="bottle_art1.jpeg" alt="Upcycled glass bottle painted pink with pearl trim and clay tulip flowers">
+        </div>
+        <div class="cap"><div class="kind">Bottle art</div><h3>Pink tulip bottle</h3></div>
+      </article>
+      <article class="piece" data-cat="lippan">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="lippan art2.jpeg" alt="Lippan clay and mirror art with Radha written in Hindi above a peacock design">
+        </div>
+        <div class="cap"><div class="kind">Lippan art</div><h3>Radha & peacock plate</h3></div>
+      </article>
+      <article class="piece" data-cat="thalposh">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="thalposh2_1.jpeg" alt="Red and mustard velvet thalposh with a flower petal design and silver fringe">
+        </div>
+        <div class="cap"><div class="kind">Thalposh</div><h3>Sunflower thalposh</h3></div>
+      </article>
+      <article class="piece" data-cat="bottle">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="bottle_art2.jpeg" alt="Upcycled bottle painted black and shaped into a tiny fairy house with a clay flower vine">
+        </div>
+        <div class="cap"><div class="kind">Bottle art</div><h3>Fairy house bottle</h3></div>
+      </article>
+      <article class="piece" data-cat="thalposh">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="thalposh6.jpeg" alt="Maroon velvet thalposh with a gold sunburst gota-work pattern">
+        </div>
+        <div class="cap"><div class="kind">Thalposh</div><h3>Gold sunburst thalposh</h3></div>
+      </article>
+      <article class="piece" data-cat="bottle">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="bottle_art3.jpeg" alt="Upcycled glass bottle painted teal with a hand-painted pink floral design">
+        </div>
+        <div class="cap"><div class="kind">Bottle art</div><h3>Teal floral bottle</h3></div>
+      </article>
+      <article class="piece" data-cat="thalposh">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="thalposh6.jpeg" alt="Red velvet thalposh with a gold wheel-spoke gota-work pattern">
+        </div>
+        <div class="cap"><div class="kind">Thalposh</div><h3>Red wheel thalposh</h3></div>
+      </article>
+      <article class="piece" data-cat="bottle">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="bottle_art4.jpeg" alt="Set of upcycled bottles painted black with gold floral and Buddha silhouette designs">
+        </div>
+        <div class="cap"><div class="kind">Bottle art</div><h3>Black & gold bottle set</h3></div>
+      </article>
+      <article class="piece" data-cat="thalposh">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="thalposh3.jpeg" alt="Maroon velvet thalposh with a round gota-work centre motif">
+        </div>
+        <div class="cap"><div class="kind">Thalposh</div><h3>Round motif thalposh</h3></div>
+      </article>
+      <article class="piece" data-cat="thalposh">
+        <div class="frame">
+          <span class="tape" aria-hidden="true"></span>
+          <img src="thalposhs.jpeg" alt="A set of five thalposh pieces in different gota-work patterns">
+        </div>
+        <div class="cap"><div class="kind">Thalposh</div><h3>A set of thalposh</h3></div>
+      </article>
+    </div>
+
+    <div class="cta-strip">
+      <p>Want something like this made for you?</p>
+      <a class="btn" href="https://instagram.com/_dreamy._creations_" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/></svg>
+        DM on Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="simple">
+  dreamy.creations — handmade lippan art, thalposh &amp; bottle art · @_dreamy._creations_
+</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const pieces = document.querySelectorAll('.piece');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      pieces.forEach(p => {
+        p.style.display = (filter === 'all' || p.dataset.cat === filter) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
