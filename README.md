@@ -35,6 +35,3 @@ https://dreamy-creations.netlify.app/
 
 Artwork by: Monika Chauhan
 
-Artwork by: [Artist's Name]
-
-Orders and enquiries: [Instagram Link]
